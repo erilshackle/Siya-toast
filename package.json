@@ -1,0 +1,22 @@
+{
+  "name": "seeya",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/seeya.umd.cjs",
+  "module": "./dist/seeya.js",
+  "exports": {
+    ".": {
+      "import": "./dist/seeya.js",
+      "require": "./dist/seeya.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}

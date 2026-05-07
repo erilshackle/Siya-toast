@@ -1,0 +1,521 @@
+/* ================================================================
+   SEEYA - DESIGN SYSTEM
+================================================================ */
+
+:root {
+  /* surfaces */
+  --seeya-surface: #0f0f10;
+  --seeya-border: rgba(255, 255, 255, 0.06);
+
+  /* text */
+  --seeya-text: #f5f5f5;
+  --seeya-text-muted: rgba(255, 255, 255, 0.72);
+
+  /* semantic colors */
+  --seeya-success: #22c55e;
+  --seeya-error: #ef4444;
+  --seeya-warning: #f59e0b;
+  --seeya-info: #3b82f6;
+
+  /* rich backgrounds */
+  --seeya-rich-success:
+    color-mix(in srgb, var(--seeya-success) 14%, transparent);
+
+  --seeya-rich-error:
+    color-mix(in srgb, var(--seeya-error) 14%, transparent);
+
+  --seeya-rich-warning:
+    color-mix(in srgb, var(--seeya-warning) 14%, transparent);
+
+  --seeya-rich-info:
+    color-mix(in srgb, var(--seeya-info) 14%, transparent);
+
+  --seeya-rich-text: #111111;
+}
+
+/* ================================================================
+   CONTAINER
+================================================================ */
+
+.seeya-container {
+  position: fixed;
+
+  z-index: 9999;
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+/* positions */
+
+.seeya-top-right {
+  top: 16px;
+  right: 16px;
+}
+
+.seeya-top-left {
+  top: 16px;
+  left: 16px;
+}
+
+.seeya-bottom-right {
+  bottom: 16px;
+  right: 16px;
+}
+
+.seeya-bottom-left {
+  bottom: 16px;
+  left: 16px;
+}
+
+.seeya-top-center {
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.seeya-bottom-center {
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* ================================================================
+   TOAST BASE
+================================================================ */
+
+.seeya-toast {
+  position: relative;
+  overflow: hidden;
+
+  pointer-events: auto;
+
+  min-width: 290px;
+  max-width: 380px;
+
+  border-radius: 14px;
+
+  padding: 14px 14px 12px;
+
+  background: var(--seeya-surface);
+  color: var(--seeya-text);
+
+  border: 1px solid var(--seeya-border);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.28),
+    0 2px 10px rgba(0, 0, 0, 0.16);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  letter-spacing: 0.1px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  opacity: 0;
+
+  transform:
+    translateY(10px) scale(0.98);
+
+  transition:
+    opacity .22s ease,
+    transform .22s cubic-bezier(.21, 1.02, .73, 1);
+}
+
+
+/* ================================================================
+   INNER
+================================================================ */
+
+.seeya-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.seeya-body {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ================================================================
+   ICON
+================================================================ */
+
+.seeya-icon {
+  width: 20px;
+  height: 20px;
+
+  margin-top: 1px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 1;
+}
+
+.seeya-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* semantic colors */
+
+.seeya-success .seeya-icon {
+  color: var(--seeya-success);
+}
+
+.seeya-error .seeya-icon {
+  color: var(--seeya-error);
+}
+
+.seeya-warning .seeya-icon {
+  color: var(--seeya-warning);
+}
+
+.seeya-info .seeya-icon {
+  color: var(--seeya-info);
+}
+
+/* ================================================================
+   CONTENT
+================================================================ */
+
+.seeya-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.seeya-title {
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.3;
+  letter-spacing: 0.2px;
+
+  color: var(--seeya-text);
+}
+
+.seeya-message {
+  font-size: 13px;
+
+  line-height: 1.45;
+  letter-spacing: 0.1px;
+
+  color: var(--seeya-text-muted);
+
+  word-break: break-word;
+}
+
+/* ================================================================
+   CLOSE
+================================================================ */
+
+.seeya-close {
+  width: 18px;
+  height: 18px;
+
+  margin-top: 1px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+
+  color: var(--seeya-text-muted);
+
+  opacity: 0.5;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  line-height: 1;
+
+  transition:
+    opacity .16s ease,
+    color .16s ease,
+    transform .16s ease;
+}
+
+.seeya-close:hover {
+  opacity: 1;
+  color: var(--seeya-text);
+}
+
+.seeya-close:active {
+  transform: scale(0.92);
+}
+
+/* ================================================================
+   DEFAULT / MONO MODE
+================================================================ */
+
+.seeya-toast:not(.seeya-rich) {
+  background: var(--seeya-surface);
+  color: var(--seeya-text);
+}
+
+/* ================================================================
+   SOLID MODE
+================================================================ */
+
+.seeya-solid.seeya-success {
+  background: var(--seeya-success);
+  color: #fff;
+}
+
+.seeya-solid.seeya-error {
+  background: var(--seeya-error);
+  color: #fff;
+}
+
+.seeya-solid.seeya-warning {
+  background: var(--seeya-warning);
+  color: #fff;
+}
+
+.seeya-solid.seeya-info {
+  background: var(--seeya-info);
+  color: #fff;
+}
+
+.seeya-solid .seeya-icon,
+.seeya-solid .seeya-title,
+.seeya-solid .seeya-message,
+.seeya-solid .seeya-close,
+.seeya-solid .seeya-action {
+  color: #fff;
+}
+
+/* ================================================================
+   RICH MODE
+================================================================ */
+
+.seeya-rich:not(.seeya-default) {
+  color: var(--seeya-rich-text);
+}
+
+.seeya-rich.seeya-success {
+  background: var(--seeya-rich-success);
+  border-color: color-mix(in srgb,
+      var(--seeya-success) 22%,
+      transparent);
+}
+
+.seeya-rich.seeya-error {
+  background: var(--seeya-rich-error);
+  border-color: color-mix(in srgb,
+      var(--seeya-error) 22%,
+      transparent);
+
+}
+
+.seeya-rich.seeya-warning {
+  background: var(--seeya-rich-warning);
+  border-color: color-mix(in srgb,
+      var(--seeya-warning) 22%,
+      transparent);
+}
+
+.seeya-rich.seeya-info {
+  background: var(--seeya-rich-info);
+  border-color: color-mix(in srgb,
+      var(--seeya-info) 22%,
+      transparent);
+}
+
+.seeya-rich .seeya-icon,
+.seeya-rich .seeya-title,
+.seeya-rich .seeya-message,
+.seeya-rich .seeya-close,
+.seeya-rich .seeya-action {
+  color: currentColor;
+}
+
+
+/* ================================================================
+   ACTIONS
+================================================================ */
+
+.seeya-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 2px;
+}
+
+.seeya-action {
+  border: none;
+  background: transparent;
+
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  /* letter-spacing: 0.15px; */
+
+  color: inherit;
+
+  opacity: 0.9;
+
+  cursor: pointer;
+
+  transition:
+    opacity .18s ease,
+    background .18s ease,
+    transform .18s ease;
+
+  background: color-mix(in srgb, var(--seeya-text), transparent 95%);
+}
+
+.seeya-action:hover {
+  opacity: 1;
+  background: color-mix(in srgb, var(--seeya-text), transparent 90%);
+  /* text-decoration: underline var(--seeya-text); */
+}
+
+.seeya-action:active {
+  transform: scale(0.96);
+}
+
+/* ================================================================
+   PROGRESS
+================================================================ */
+
+.seeya-progress {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 2px;
+
+  overflow: hidden;
+
+  border-radius:
+    0 0 14px 14px;
+
+  background: transparent;
+}
+
+.seeya-progress-bar {
+  width: 100%;
+  height: 100%;
+
+  background: currentColor;
+
+  opacity: 0.18;
+
+  transform-origin: left center;
+}
+
+/* ================================================================
+   ANIMATION
+================================================================ */
+
+.enter-active {
+  opacity: 1;
+
+  transform:
+    translateY(0) scale(1);
+}
+
+.leave-active {
+  opacity: 0;
+
+  transform:
+    translateY(6px) scale(0.96);
+
+  transition:
+    opacity .18s ease,
+    transform .18s ease;
+}
+
+/* ================================================================
+   MOBILE
+================================================================ */
+
+@media (max-width: 480px) {
+
+  .seeya-top-right,
+  .seeya-top-left,
+  .seeya-bottom-right,
+  .seeya-bottom-left,
+  .seeya-top-center,
+  .seeya-bottom-center {
+    left: 12px;
+    right: 12px;
+
+    transform: none;
+  }
+
+  .seeya-toast {
+    width: 100%;
+    max-width: 100%;
+    min-width: unset;
+  }
+}
+
+
+/* ================================================================
+   DARK / LIGHT MODE SUPPORT
+================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --seeya-surface: #0f0f10;
+    --seeya-border: rgba(255, 255, 255, 0.06);
+
+    --seeya-text: #f5f5f5;
+    --seeya-text-muted: rgba(255, 255, 255, 0.72);
+
+    --seeya-surface: #0f0f10;
+    --seeya-text: #f5f5f5;
+    --seeya-text-muted: rgba(255, 255, 255, 0.72);
+    --seeya-border: rgba(255, 255, 255, 0.06);
+  }
+
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --seeya-surface: #ffffff;
+    --seeya-border: rgba(0, 0, 0, 0.08);
+
+    --seeya-text: #111111;
+    --seeya-text-muted: rgba(0, 0, 0, 0.65);
+  }
+}
