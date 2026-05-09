@@ -4,40 +4,40 @@
 
 :root {
   /* surfaces */
-  --seeya-surface: #0f0f10;
-  --seeya-border: rgba(255, 255, 255, 0.06);
+  --siya-surface: #0f0f10;
+  --siya-border: rgba(255, 255, 255, 0.06);
 
   /* text */
-  --seeya-text: #f5f5f5;
-  --seeya-text-muted: rgba(255, 255, 255, 0.72);
+  --siya-text: #f5f5f5;
+  --siya-text-muted: rgba(255, 255, 255, 0.72);
 
   /* semantic colors */
-  --seeya-success: #22c55e;
-  --seeya-error: #ef4444;
-  --seeya-warning: #f59e0b;
-  --seeya-info: #3b82f6;
+  --siya-success: #22c55e;
+  --siya-error: #ef4444;
+  --siya-warning: #f59e0b;
+  --siya-info: #3b82f6;
 
   /* rich backgrounds */
-  --seeya-rich-success:
-    color-mix(in srgb, var(--seeya-success) 14%, transparent);
+  --siya-rich-success:
+    color-mix(in srgb, var(--siya-success) 14%, transparent);
 
-  --seeya-rich-error:
-    color-mix(in srgb, var(--seeya-error) 14%, transparent);
+  --siya-rich-error:
+    color-mix(in srgb, var(--siya-error) 14%, transparent);
 
-  --seeya-rich-warning:
-    color-mix(in srgb, var(--seeya-warning) 14%, transparent);
+  --siya-rich-warning:
+    color-mix(in srgb, var(--siya-warning) 14%, transparent);
 
-  --seeya-rich-info:
-    color-mix(in srgb, var(--seeya-info) 14%, transparent);
+  --siya-rich-info:
+    color-mix(in srgb, var(--siya-info) 14%, transparent);
 
-  --seeya-rich-text: #111111;
+  --siya-rich-text: #111111;
 }
 
 /* ================================================================
    CONTAINER
 ================================================================ */
 
-.seeya-container {
+.siya-container {
   position: fixed;
 
   z-index: 9999;
@@ -47,37 +47,42 @@
   flex-direction: column;
 
   gap: 10px;
+
+  isolation: isolate;
+
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: env(safe-area-inset-top);
 }
 
 /* positions */
 
-.seeya-top-right {
+.siya-top-right {
   top: 16px;
   right: 16px;
 }
 
-.seeya-top-left {
+.siya-top-left {
   top: 16px;
   left: 16px;
 }
 
-.seeya-bottom-right {
+.siya-bottom-right {
   bottom: 16px;
   right: 16px;
 }
 
-.seeya-bottom-left {
+.siya-bottom-left {
   bottom: 16px;
   left: 16px;
 }
 
-.seeya-top-center {
+.siya-top-center {
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.seeya-bottom-center {
+.siya-bottom-center {
   bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
@@ -88,7 +93,7 @@
    TOAST BASE
 ================================================================ */
 
-.seeya-toast {
+.siya-toast {
   position: relative;
   overflow: hidden;
 
@@ -101,10 +106,12 @@
 
   padding: 14px 14px 12px;
 
-  background: var(--seeya-surface);
-  color: var(--seeya-text);
+  background: var(--siya-surface);
+  color: var(--siya-text);
 
-  border: 1px solid var(--seeya-border);
+  border: 1px solid var(--siya-border);
+
+  box-sizing: border-box;
 
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.28),
@@ -135,6 +142,8 @@
   transition:
     opacity .22s ease,
     transform .22s cubic-bezier(.21, 1.02, .73, 1);
+
+  contain: layout style paint;
 }
 
 
@@ -142,13 +151,13 @@
    INNER
 ================================================================ */
 
-.seeya-inner {
+.siya-inner {
   display: flex;
   align-items: flex-start;
   gap: 12px;
 }
 
-.seeya-body {
+.siya-body {
   flex: 1;
   min-width: 0;
 
@@ -161,7 +170,7 @@
    ICON
 ================================================================ */
 
-.seeya-icon {
+.siya-icon {
   width: 20px;
   height: 20px;
 
@@ -176,34 +185,34 @@
   opacity: 1;
 }
 
-.seeya-icon svg {
+.siya-icon svg {
   width: 18px;
   height: 18px;
 }
 
 /* semantic colors */
 
-.seeya-success .seeya-icon {
-  color: var(--seeya-success);
+.siya-success .siya-icon {
+  color: var(--siya-success);
 }
 
-.seeya-error .seeya-icon {
-  color: var(--seeya-error);
+.siya-error .siya-icon {
+  color: var(--siya-error);
 }
 
-.seeya-warning .seeya-icon {
-  color: var(--seeya-warning);
+.siya-warning .siya-icon {
+  color: var(--siya-warning);
 }
 
-.seeya-info .seeya-icon {
-  color: var(--seeya-info);
+.siya-info .siya-icon {
+  color: var(--siya-info);
 }
 
 /* ================================================================
    CONTENT
 ================================================================ */
 
-.seeya-content {
+.siya-content {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -211,23 +220,23 @@
   min-width: 0;
 }
 
-.seeya-title {
+.siya-title {
   font-size: 13px;
   font-weight: 600;
 
   line-height: 1.3;
   letter-spacing: 0.2px;
 
-  color: var(--seeya-text);
+  color: var(--siya-text);
 }
 
-.seeya-message {
+.siya-message {
   font-size: 13px;
 
   line-height: 1.45;
   letter-spacing: 0.1px;
 
-  color: var(--seeya-text-muted);
+  color: var(--siya-text-muted);
 
   word-break: break-word;
 }
@@ -236,7 +245,7 @@
    CLOSE
 ================================================================ */
 
-.seeya-close {
+.siya-close {
   width: 18px;
   height: 18px;
 
@@ -251,7 +260,7 @@
   border: none;
   background: transparent;
 
-  color: var(--seeya-text-muted);
+  color: var(--siya-text-muted);
 
   opacity: 0.5;
 
@@ -266,12 +275,12 @@
     transform .16s ease;
 }
 
-.seeya-close:hover {
+.siya-close:hover {
   opacity: 1;
-  color: var(--seeya-text);
+  color: var(--siya-text);
 }
 
-.seeya-close:active {
+.siya-close:active {
   transform: scale(0.92);
 }
 
@@ -279,40 +288,40 @@
    DEFAULT / MONO MODE
 ================================================================ */
 
-.seeya-toast:not(.seeya-rich) {
-  background: var(--seeya-surface);
-  color: var(--seeya-text);
+.siya-toast:not(.siya-rich) {
+  background: var(--siya-surface);
+  color: var(--siya-text);
 }
 
 /* ================================================================
    SOLID MODE
 ================================================================ */
 
-.seeya-solid.seeya-success {
-  background: var(--seeya-success);
+.siya-solid.siya-success {
+  background: var(--siya-success);
   color: #fff;
 }
 
-.seeya-solid.seeya-error {
-  background: var(--seeya-error);
+.siya-solid.siya-error {
+  background: var(--siya-error);
   color: #fff;
 }
 
-.seeya-solid.seeya-warning {
-  background: var(--seeya-warning);
+.siya-solid.siya-warning {
+  background: var(--siya-warning);
   color: #fff;
 }
 
-.seeya-solid.seeya-info {
-  background: var(--seeya-info);
+.siya-solid.siya-info {
+  background: var(--siya-info);
   color: #fff;
 }
 
-.seeya-solid .seeya-icon,
-.seeya-solid .seeya-title,
-.seeya-solid .seeya-message,
-.seeya-solid .seeya-close,
-.seeya-solid .seeya-action {
+.siya-solid .siya-icon,
+.siya-solid .siya-title,
+.siya-solid .siya-message,
+.siya-solid .siya-close,
+.siya-solid .siya-action {
   color: #fff;
 }
 
@@ -320,44 +329,44 @@
    RICH MODE
 ================================================================ */
 
-.seeya-rich:not(.seeya-default) {
-  color: var(--seeya-rich-text);
+.siya-rich:not(.siya-default) {
+  color: var(--siya-rich-text);
 }
 
-.seeya-rich.seeya-success {
-  background: var(--seeya-rich-success);
+.siya-rich.siya-success {
+  background: var(--siya-rich-success);
   border-color: color-mix(in srgb,
-      var(--seeya-success) 22%,
+      var(--siya-success) 22%,
       transparent);
 }
 
-.seeya-rich.seeya-error {
-  background: var(--seeya-rich-error);
+.siya-rich.siya-error {
+  background: var(--siya-rich-error);
   border-color: color-mix(in srgb,
-      var(--seeya-error) 22%,
+      var(--siya-error) 22%,
       transparent);
 
 }
 
-.seeya-rich.seeya-warning {
-  background: var(--seeya-rich-warning);
+.siya-rich.siya-warning {
+  background: var(--siya-rich-warning);
   border-color: color-mix(in srgb,
-      var(--seeya-warning) 22%,
+      var(--siya-warning) 22%,
       transparent);
 }
 
-.seeya-rich.seeya-info {
-  background: var(--seeya-rich-info);
+.siya-rich.siya-info {
+  background: var(--siya-rich-info);
   border-color: color-mix(in srgb,
-      var(--seeya-info) 22%,
+      var(--siya-info) 22%,
       transparent);
 }
 
-.seeya-rich .seeya-icon,
-.seeya-rich .seeya-title,
-.seeya-rich .seeya-message,
-.seeya-rich .seeya-close,
-.seeya-rich .seeya-action {
+.siya-rich .siya-icon,
+.siya-rich .siya-title,
+.siya-rich .siya-message,
+.siya-rich .siya-close,
+.siya-rich .siya-action {
   color: currentColor;
 }
 
@@ -366,7 +375,7 @@
    ACTIONS
 ================================================================ */
 
-.seeya-actions {
+.siya-actions {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -374,7 +383,7 @@
   margin-top: 2px;
 }
 
-.seeya-action {
+.siya-action {
   border: none;
   background: transparent;
 
@@ -397,16 +406,16 @@
     background .18s ease,
     transform .18s ease;
 
-  background: color-mix(in srgb, var(--seeya-text), transparent 95%);
+  background: color-mix(in srgb, var(--siya-text), transparent 95%);
 }
 
-.seeya-action:hover {
+.siya-action:hover {
   opacity: 1;
-  background: color-mix(in srgb, var(--seeya-text), transparent 90%);
-  /* text-decoration: underline var(--seeya-text); */
+  background: color-mix(in srgb, var(--siya-text), transparent 90%);
+  /* text-decoration: underline var(--siya-text); */
 }
 
-.seeya-action:active {
+.siya-action:active {
   transform: scale(0.96);
 }
 
@@ -414,7 +423,7 @@
    PROGRESS
 ================================================================ */
 
-.seeya-progress {
+.siya-progress {
   position: absolute;
 
   left: 0;
@@ -431,13 +440,13 @@
   background: transparent;
 }
 
-.seeya-progress-bar {
+.siya-progress-bar {
   width: 100%;
   height: 100%;
 
   background: currentColor;
 
-  opacity: 0.18;
+  opacity: 0.22;
 
   transform-origin: left center;
 }
@@ -470,19 +479,19 @@
 
 @media (max-width: 480px) {
 
-  .seeya-top-right,
-  .seeya-top-left,
-  .seeya-bottom-right,
-  .seeya-bottom-left,
-  .seeya-top-center,
-  .seeya-bottom-center {
+  .siya-top-right,
+  .siya-top-left,
+  .siya-bottom-right,
+  .siya-bottom-left,
+  .siya-top-center,
+  .siya-bottom-center {
     left: 12px;
     right: 12px;
 
     transform: none;
   }
 
-  .seeya-toast {
+  .siya-toast {
     width: 100%;
     max-width: 100%;
     min-width: unset;
@@ -496,26 +505,26 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --seeya-surface: #0f0f10;
-    --seeya-border: rgba(255, 255, 255, 0.06);
+    --siya-surface: #0f0f10;
+    --siya-border: rgba(255, 255, 255, 0.06);
 
-    --seeya-text: #f5f5f5;
-    --seeya-text-muted: rgba(255, 255, 255, 0.72);
+    --siya-text: #f5f5f5;
+    --siya-text-muted: rgba(255, 255, 255, 0.72);
 
-    --seeya-surface: #0f0f10;
-    --seeya-text: #f5f5f5;
-    --seeya-text-muted: rgba(255, 255, 255, 0.72);
-    --seeya-border: rgba(255, 255, 255, 0.06);
+    --siya-surface: #0f0f10;
+    --siya-text: #f5f5f5;
+    --siya-text-muted: rgba(255, 255, 255, 0.72);
+    --siya-border: rgba(255, 255, 255, 0.06);
   }
 
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --seeya-surface: #ffffff;
-    --seeya-border: rgba(0, 0, 0, 0.08);
+    --siya-surface: #ffffff;
+    --siya-border: rgba(0, 0, 0, 0.08);
 
-    --seeya-text: #111111;
-    --seeya-text-muted: rgba(0, 0, 0, 0.65);
+    --siya-text: #111111;
+    --siya-text-muted: rgba(0, 0, 0, 0.65);
   }
 }

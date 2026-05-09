@@ -1,22 +1,51 @@
 {
-  "name": "seeya",
+  "name": "siya",
   "version": "1.0.0",
+  "description": "Minimal toast notification library",
   "type": "module",
-  "main": "./dist/seeya.umd.cjs",
-  "module": "./dist/seeya.js",
+
+  "main": "./dist/siya.js",
+
+  "module": "./dist/siya.mjs",
+
+  "types": "./dist/index.d.ts",
+
+  "unpkg": "./dist/siya.min.js",
+
+  "jsdelivr": "./dist/siya.min.js",
+
   "exports": {
     ".": {
-      "import": "./dist/seeya.js",
-      "require": "./dist/seeya.umd.cjs"
-    },
-    "./style.css": "./dist/style.css"
+      "import": "./dist/siya.mjs",
+      "require": "./dist/siya.js",
+      "types": "./dist/index.d.ts"
+    }
   },
+
   "files": [
     "dist"
   ],
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+
+   "scripts": {
+    "build:js": "tsup",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run build:js && npm run build:types"
+  },
+
+  "keywords": [
+    "toast",
+    "notification",
+    "alert",
+    "toast-library",
+    "typescript",
+    "cdn"
+  ],
+
+  "license": "MIT",
+
+  "devDependencies": {
+    "esbuild-plugin-inline-css": "^1.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
   }
 }

@@ -1,91 +1,13 @@
-<!doctype html>
-<html lang="en"  data-seeya-theme="light">
-  
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="./src/style.css" />
-
-  <title>Seeya Playground</title>
-
-  <style>
-    body {
-      font-family: system-ui;
-      padding: 40px;
-    }
-
-    button {
-      margin: 6px;
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      cursor: pointer;
-    }
-  </style>
-</head>
+<!DOCTYPE html>
+<html>
 
 <body>
+    <link rel="stylesheet" href="dist/index.css">
+    <script src="./dist/index.js"></script>
 
-  <button id="success">Success</button>
-  <button id="error">Error</button>
-  <button id="info">Info</button>
-  <button id="action">Action</button>
-  <button id="promise">Promise</button>
-  <button id="confirm">Confirm</button>
-
-  <script type="module">
-    import Seeya from './src/index.js';
-
-    Seeya.init({
-      rich: true,
-    });
-
-    document.getElementById('success').onclick = () => {
-      Seeya.success("Saved successfully!");
-    };
-
-    document.getElementById('error').onclick = () => {
-      Seeya.error("Something went wrong");
-    };
-
-    document.getElementById('info').onclick = () => {
-      Seeya.info("Just FYI");
-    };
-
-    document.getElementById('action').onclick = () => {
-      Seeya.show({
-        title: "Undo action",
-        message: "Item deleted",
-        pauseOnHover: false,
-        actions: [
-          {
-            label: "Undo",
-            onClick: () => console.log("undo clicked")
-          }
-        ]
-      });
-    };
-
-    document.getElementById('promise').onclick = () => {
-      Seeya.promise(
-        new Promise(res => setTimeout(res, 2000)),
-        {
-          loading: "Saving...",
-          success: "Saved!",
-          error: "Failed"
-        }
-      );
-    };
-
-    document.getElementById('confirm').onclick = () => {
-      Seeya.confirm("Delete file?", {
-        onConfirm: () => Seeya.success("Deleted"),
-        onCancel: () => Seeya.info("Cancelled")
-      });
-    };
-  </script>
+    <script>
+        Siya.success("Funcionando")
+    </script>
 
 </body>
 
