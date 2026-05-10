@@ -63,7 +63,7 @@ const Siya = {
     },
 
 
-    show(toast: SiyaToast = {}): SiyaToast {
+    toast(toast: SiyaToast = {}): SiyaToast {
         mount();
 
         return show({
@@ -78,7 +78,7 @@ const Siya = {
         options: SiyaToast = {}
     ): SiyaToast {
 
-        return this.show({
+        return this.toast({
             ...options,
             message,
             type: 'success'
@@ -91,7 +91,7 @@ const Siya = {
         options: SiyaToast = {}
     ): SiyaToast {
 
-        return this.show({
+        return this.toast({
             ...options,
             message,
             type: 'error'
@@ -104,7 +104,7 @@ const Siya = {
         options: SiyaToast = {}
     ): SiyaToast {
 
-        return this.show({
+        return this.toast({
             ...options,
             message,
             type: 'info'
@@ -117,7 +117,7 @@ const Siya = {
         options: SiyaToast = {}
     ): SiyaToast {
 
-        return this.show({
+        return this.toast({
             ...options,
             message,
             type: 'warning'
@@ -131,7 +131,7 @@ const Siya = {
         action: SiyaAction
     ): SiyaToast {
 
-        return this.show({
+        return this.toast({
             title,
             message,
 
@@ -161,7 +161,7 @@ const Siya = {
 
         mount();
 
-        const toast = this.show({
+        const toast = this.toast({
             message: options.loading,
             type: 'info',
             duration: 0
@@ -225,7 +225,7 @@ const Siya = {
 
         mount();
 
-        return this.show({
+        return this.toast({
             title,
 
             message: options.message || '',
@@ -262,16 +262,5 @@ const Siya = {
 // --------------------------------------------------
 // CDN GLOBAL
 // --------------------------------------------------
-
-declare global {
-    interface Window {
-        Siya: typeof Siya;
-    }
-}
-
-if (typeof window !== 'undefined') {
-    window.Siya = Siya;
-}
-
 
 export default Siya;

@@ -4,47 +4,37 @@
   "description": "Minimal toast notification library",
   "type": "module",
 
-  "main": "./dist/siya.js",
-
-  "module": "./dist/siya.mjs",
-
+  "main": "./dist/index.global.js",
+  "module": "./dist/siya.js",
   "types": "./dist/index.d.ts",
 
-  "unpkg": "./dist/siya.min.js",
-
-  "jsdelivr": "./dist/siya.min.js",
+  "unpkg": "./dist/index.global.js",
+  "jsdelivr": "./dist/index.global.js",
 
   "exports": {
     ".": {
-      "import": "./dist/siya.mjs",
-      "require": "./dist/siya.js",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }
   },
 
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
 
-   "scripts": {
-    "build:js": "tsup",
-    "build:types": "tsc --emitDeclarationOnly",
-    "build": "npm run build:js && npm run build:types"
+  "scripts": {
+    "build": "tsup && tsc --emitDeclarationOnly"
   },
 
   "keywords": [
     "toast",
     "notification",
-    "alert",
-    "toast-library",
-    "typescript",
-    "cdn"
+    "ui",
+    "cdn",
+    "typescript"
   ],
 
   "license": "MIT",
 
   "devDependencies": {
-    "esbuild-plugin-inline-css": "^1.0.0",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0"
   }

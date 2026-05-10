@@ -3,10 +3,18 @@
 
 <body>
     <link rel="stylesheet" href="dist/index.css">
-    <script src="./dist/index.js"></script>
+    <script src="./dist/index.global.js"></script>
 
     <script>
-        Siya.success("Funcionando")
+        Siya.init({
+            // rich: true,
+        });
+
+        Siya.toast({
+            message: "menssagem",
+            title: "Título",
+            type: "info"
+        });
     </script>
 
 </body>
