@@ -1,0 +1,314 @@
+/* src/styles.css */
+:root {
+  --siya-surface: #0f0f10;
+  --siya-border: rgba(255, 255, 255, 0.06);
+  --siya-text: #f5f5f5;
+  --siya-text-muted: rgba(255, 255, 255, 0.72);
+  --siya-success: #22c55e;
+  --siya-error: #ef4444;
+  --siya-warning: #f59e0b;
+  --siya-info: #3b82f6;
+  --siya-rich-success: color-mix(in srgb, var(--siya-success) 14%, transparent);
+  --siya-rich-error: color-mix(in srgb, var(--siya-error) 14%, transparent);
+  --siya-rich-warning: color-mix(in srgb, var(--siya-warning) 14%, transparent);
+  --siya-rich-info: color-mix(in srgb, var(--siya-info) 14%, transparent);
+  --siya-rich-text: #111111;
+}
+.siya-container {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  isolation: isolate;
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: env(safe-area-inset-top);
+}
+.siya-top-right {
+  top: 16px;
+  right: 16px;
+}
+.siya-top-left {
+  top: 16px;
+  left: 16px;
+}
+.siya-bottom-right {
+  bottom: 16px;
+  right: 16px;
+}
+.siya-bottom-left {
+  bottom: 16px;
+  left: 16px;
+}
+.siya-top-center {
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.siya-bottom-center {
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.siya-toast {
+  position: relative;
+  overflow: hidden;
+  pointer-events: auto;
+  min-width: 290px;
+  max-width: 380px;
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+  background: var(--siya-surface);
+  color: var(--siya-text);
+  border: 1px solid var(--siya-border);
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28), 0 2px 10px rgba(0, 0, 0, 0.16);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  letter-spacing: 0.1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  transition: opacity .22s ease, transform .22s cubic-bezier(.21, 1.02, .73, 1);
+  contain: layout style paint;
+}
+.siya-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.siya-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.siya-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+.siya-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.siya-success .siya-icon {
+  color: var(--siya-success);
+}
+.siya-error .siya-icon {
+  color: var(--siya-error);
+}
+.siya-warning .siya-icon {
+  color: var(--siya-warning);
+}
+.siya-info .siya-icon {
+  color: var(--siya-info);
+}
+.siya-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.siya-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.2px;
+  color: var(--siya-text);
+}
+.siya-message {
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0.1px;
+  color: var(--siya-text-muted);
+  word-break: break-word;
+}
+.siya-close {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--siya-text-muted);
+  opacity: 0.5;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  transition:
+    opacity .16s ease,
+    color .16s ease,
+    transform .16s ease;
+}
+.siya-close:hover {
+  opacity: 1;
+  color: var(--siya-text);
+}
+.siya-close:active {
+  transform: scale(0.92);
+}
+.siya-toast:not(.siya-rich) {
+  background: var(--siya-surface);
+  color: var(--siya-text);
+}
+.siya-solid.siya-success {
+  background: var(--siya-success);
+  color: #fff;
+}
+.siya-solid.siya-error {
+  background: var(--siya-error);
+  color: #fff;
+}
+.siya-solid.siya-warning {
+  background: var(--siya-warning);
+  color: #fff;
+}
+.siya-solid.siya-info {
+  background: var(--siya-info);
+  color: #fff;
+}
+.siya-solid .siya-icon,
+.siya-solid .siya-title,
+.siya-solid .siya-message,
+.siya-solid .siya-close,
+.siya-solid .siya-action {
+  color: #fff;
+}
+.siya-rich:not(.siya-default) {
+  color: var(--siya-rich-text);
+}
+.siya-rich.siya-success {
+  background: var(--siya-rich-success);
+  border-color: color-mix(in srgb, var(--siya-success) 22%, transparent);
+}
+.siya-rich.siya-error {
+  background: var(--siya-rich-error);
+  border-color: color-mix(in srgb, var(--siya-error) 22%, transparent);
+}
+.siya-rich.siya-warning {
+  background: var(--siya-rich-warning);
+  border-color: color-mix(in srgb, var(--siya-warning) 22%, transparent);
+}
+.siya-rich.siya-info {
+  background: var(--siya-rich-info);
+  border-color: color-mix(in srgb, var(--siya-info) 22%, transparent);
+}
+.siya-rich .siya-icon,
+.siya-rich .siya-title,
+.siya-rich .siya-message,
+.siya-rich .siya-close,
+.siya-rich .siya-action {
+  color: currentColor;
+}
+.siya-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+.siya-action {
+  border: none;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: inherit;
+  opacity: 0.9;
+  cursor: pointer;
+  transition:
+    opacity .18s ease,
+    background .18s ease,
+    transform .18s ease;
+  background: color-mix(in srgb, var(--siya-text), transparent 95%);
+}
+.siya-action:hover {
+  opacity: 1;
+  background: color-mix(in srgb, var(--siya-text), transparent 90%);
+}
+.siya-action:active {
+  transform: scale(0.96);
+}
+.siya-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 0 0 14px 14px;
+  background: transparent;
+}
+.siya-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: currentColor;
+  opacity: 0.22;
+  transform-origin: left center;
+}
+.enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.leave-active {
+  opacity: 0;
+  transform: translateY(6px) scale(0.96);
+  transition: opacity .18s ease, transform .18s ease;
+}
+@media (max-width: 480px) {
+  .siya-top-right,
+  .siya-top-left,
+  .siya-bottom-right,
+  .siya-bottom-left,
+  .siya-top-center,
+  .siya-bottom-center {
+    left: 12px;
+    right: 12px;
+    transform: none;
+  }
+  .siya-toast {
+    width: 100%;
+    max-width: 100%;
+    min-width: unset;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --siya-surface: #0f0f10;
+    --siya-border: rgba(255, 255, 255, 0.06);
+    --siya-text: #f5f5f5;
+    --siya-text-muted: rgba(255, 255, 255, 0.72);
+    --siya-surface: #0f0f10;
+    --siya-text: #f5f5f5;
+    --siya-text-muted: rgba(255, 255, 255, 0.72);
+    --siya-border: rgba(255, 255, 255, 0.06);
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --siya-surface: #ffffff;
+    --siya-border: rgba(0, 0, 0, 0.08);
+    --siya-text: #111111;
+    --siya-text-muted: rgba(0, 0, 0, 0.65);
+  }
+}
